@@ -8,11 +8,11 @@ mail VARCHAR (100) NOT NULL,
 contrasenia VARCHAR(100) NOT NULL,
 
 CREATE TABLE tareas(
-tarea-id INT NOT NULL PRIMARY KEY,
+tarea-id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 titulo VARCHAR(100) ,
 descripcion VARCHAR(200),
-estado VARCHAR(20) NOT NULL default "pendiente" ,
+estado enum ('pendiente','completada','eliminada'),
 fecha-creacion timestamp NOT NULL
 fecha-actualizacion timestamp NOT NULL ,
 fecha-eliminacion timestamp,
-id-usuario int NOT NULL
+FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id);
